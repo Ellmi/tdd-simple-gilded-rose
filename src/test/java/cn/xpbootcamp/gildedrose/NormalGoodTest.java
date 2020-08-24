@@ -6,11 +6,20 @@ import org.junit.Test;
 public class NormalGoodTest {
 
     @Test
-    public void should_return_correct_value_when_get_good_info_given_good_sellIn_and_quality () {
+    public void should_return_correct_value_when_get_good_info_given_good_sellIn_and_quality() {
 
         NormalGood normalGood = new NormalGood(10, 20);
 
-        Assert.assertEquals(10,normalGood.getSellIn());
-        Assert.assertEquals(20,normalGood.getQuality());
+        Assert.assertEquals(10, normalGood.getSellIn());
+        Assert.assertEquals(20, normalGood.getQuality());
+    }
+
+    @Test
+    public void should_reduce_one_when_get_good_updatedQuality_and_updatedSelIn_given_one_day_passed() {
+
+        NormalGood normalGood = new NormalGood(10, 20);
+
+        Assert.assertEquals(9, normalGood.getUpdatedSellIn(1));
+        Assert.assertEquals(19, normalGood.getUpdatedQuality(1));
     }
 }
