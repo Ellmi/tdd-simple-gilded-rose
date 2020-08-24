@@ -22,4 +22,17 @@ public class BackstageTest {
         Assert.assertEquals(14, backstage.getUpdatedSellIn(1));
         Assert.assertEquals(21, backstage.getUpdatedQuality(1));
     }
+
+    @Test
+    public void should_increase_two_when_get_good_updatedQuality_and_updatedSelIn_given_one_day_passed_and_updatedSellIn_in_ten_days() {
+
+        Backstage backstage1 = new Backstage(10, 45);
+        Backstage backstage2 = new Backstage(9, 45);
+
+        Assert.assertEquals(9, backstage1.getUpdatedSellIn(1));
+        Assert.assertEquals(47, backstage1.getUpdatedQuality(1));
+
+        Assert.assertEquals(8, backstage2.getUpdatedSellIn(1));
+        Assert.assertEquals(47, backstage2.getUpdatedQuality(1));
+    }
 }
