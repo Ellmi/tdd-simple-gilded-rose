@@ -18,4 +18,8 @@ public class Good {
         this.quality = quality;
     }
 
+    public int getUpdatedSellIn(int day) {
+        return this.sellIn - day;
+    }
+
 }

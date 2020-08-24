@@ -11,10 +11,6 @@ public class NormalGood extends Good {
         super(sellIn, quality);
     }
 
-    public int getUpdatedSellIn(int day) {
-        return this.sellIn - day;
-    }
-
     public int getUpdatedQuality(int day) {
 
         int eachDayReducedQuality = EACH_DAY_REDUCED_QUALITY_NOT_OVERDUE;
