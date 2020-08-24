@@ -52,4 +52,17 @@ public class BackstageTest {
         Assert.assertEquals(4, backstage3.getUpdatedSellIn(1));
         Assert.assertEquals(50, backstage3.getUpdatedQuality(1));
     }
+
+    @Test
+    public void should_increase_tree_when_get_good_updatedQuality_and_updatedSelIn_given_one_day_passed_and_updatedSellIn_in_5_days() {
+
+        Backstage backstage1 = new Backstage(5, 45);
+        Backstage backstage2 = new Backstage(1, 20);
+
+        Assert.assertEquals(4, backstage1.getUpdatedSellIn(1));
+        Assert.assertEquals(48, backstage1.getUpdatedQuality(1));
+
+        Assert.assertEquals(0, backstage2.getUpdatedSellIn(1));
+        Assert.assertEquals(23, backstage2.getUpdatedQuality(1));
+    }
 }
