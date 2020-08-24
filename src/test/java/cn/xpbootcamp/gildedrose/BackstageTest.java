@@ -65,4 +65,13 @@ public class BackstageTest {
         Assert.assertEquals(0, backstage2.getUpdatedSellIn(1));
         Assert.assertEquals(23, backstage2.getUpdatedQuality(1));
     }
+
+    @Test
+    public void should_be_zero_when_get_good_updatedQuality_and_updatedSelIn_given_one_day_passed_and_updatedSellIn_overdue() {
+
+        Backstage backstage = new Backstage(0, 20);
+
+        Assert.assertEquals(-1, backstage.getUpdatedSellIn(1));
+        Assert.assertEquals(0, backstage.getUpdatedQuality(1));
+    }
 }
