@@ -35,4 +35,14 @@ public class NormalGoodTest {
         Assert.assertEquals(-2, normalGood2.getUpdatedSellIn(1));
         Assert.assertEquals(4, normalGood2.getUpdatedQuality(1));
     }
+
+    @Test
+    public void should_return_qulity_zero_when_get_good_updatedQuality_and_updatedSelIn_given_one_day_passed_and_updatedQuality_zero() {
+
+        NormalGood normalGood = new NormalGood(2, 0);
+
+        Assert.assertEquals(1, normalGood.getUpdatedSellIn(1));
+        Assert.assertEquals(0, normalGood.getUpdatedQuality(1));
+
+    }
 }

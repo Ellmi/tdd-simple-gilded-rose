@@ -7,8 +7,8 @@ public class Good {
     protected int sellIn;
     @Getter
     protected int quality;
-    private int QUALITY_MAX_LIMIT = 50;
-    private int QUALITY_MIN_LIMIT = 0;
+    protected int QUALITY_MAX_LIMIT = 50;
+    protected int QUALITY_MIN_LIMIT = 0;
 
     public Good(int sellIn, int quality) {
 

@@ -16,7 +16,15 @@ public class NormalGood extends Good {
     }
 
     public int getUpdatedQuality(int day) {
-        if (this.sellIn < day) return this.quality - day * EACH_DAY_REDUCED_QUALITY_OVERDUE;
-        return this.quality - day * EACH_DAY_REDUCED_QUALITY;
+
+        int updatedQuality;
+
+        if (this.sellIn < day) {
+            updatedQuality = this.quality - day * EACH_DAY_REDUCED_QUALITY_OVERDUE;
+        } else {
+            updatedQuality = this.quality - day * EACH_DAY_REDUCED_QUALITY;
+        }
+
+        return Math.max(QUALITY_MIN_LIMIT, updatedQuality);
     }
 }
