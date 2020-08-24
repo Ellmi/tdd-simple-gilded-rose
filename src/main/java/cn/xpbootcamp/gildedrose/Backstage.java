@@ -17,10 +17,11 @@ public class Backstage extends Good {
     }
 
     public int getUpdatedQuality(int day) {
+        if (this.sellIn < day) return QUALITY_OVERDUE;
+
         int eachDayIncreaseddQuality = EACH_DAY_INCREASED_QUALITY_TEN_DAYS_BEFORE;
         if (this.sellIn - day < TEN_DAYS) eachDayIncreaseddQuality = EACH_DAY_INCREASED_QUALITY_IN_TEN_DAYS;
         if (this.sellIn - day < FIVE_DAYS) eachDayIncreaseddQuality = EACH_DAY_INCREASED_QUALITY_IN_FIVE_DAYS;
-        if (this.sellIn < day) return QUALITY_OVERDUE;
 
         int updatedQuality = this.quality + day * eachDayIncreaseddQuality;
 
