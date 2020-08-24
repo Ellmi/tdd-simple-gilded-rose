@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public class NormalGood extends Good {
     private final int EACH_DAY_REDUCED_QUALITY_OVERDUE = 2;
-    private final int EACH_DAY_REDUCED_QUALITY = 1;
+    private final int EACH_DAY_REDUCED_QUALITY_NOT_OVERDUE = 1;
 
     public NormalGood(int sellIn, int quality) {
         super(sellIn, quality);
@@ -17,14 +17,11 @@ public class NormalGood extends Good {
 
     public int getUpdatedQuality(int day) {
 
-        int updatedQuality;
+        int eachDayReducedQuality = EACH_DAY_REDUCED_QUALITY_NOT_OVERDUE;
 
-        if (this.sellIn < day) {
-            updatedQuality = this.quality - day * EACH_DAY_REDUCED_QUALITY_OVERDUE;
-        } else {
-            updatedQuality = this.quality - day * EACH_DAY_REDUCED_QUALITY;
-        }
+        if (this.sellIn < day) eachDayReducedQuality = EACH_DAY_REDUCED_QUALITY_OVERDUE;
 
+        int updatedQuality = this.quality - day * eachDayReducedQuality;
         return Math.max(QUALITY_MIN_LIMIT, updatedQuality);
     }
 }
