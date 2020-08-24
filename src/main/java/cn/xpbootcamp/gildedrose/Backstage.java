@@ -1,11 +1,10 @@
 package cn.xpbootcamp.gildedrose;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Getter
-public class Backstage {
-    private int sellIn;
-    private int quality;
+public class Backstage extends Good {
+    public Backstage(int sellIn, int quality) {
+        super(sellIn, quality);
+    }
 }
