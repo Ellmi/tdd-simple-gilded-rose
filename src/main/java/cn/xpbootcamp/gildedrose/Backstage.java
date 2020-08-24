@@ -20,6 +20,9 @@ public class Backstage extends Good {
     public int getUpdatedQuality(int day) {
         int eachDayIncreaseddQuality = EACH_DAY_INCREASED_QUALITY_TEN_DAYS_BEFORE;
         if (this.sellIn - day < TEN_DAYS) eachDayIncreaseddQuality = EACH_DAY_INCREASED_QUALITY_IN_TEN_DAYS;
-        return this.quality + day * eachDayIncreaseddQuality;
+
+        int updatedQuality = this.quality + day * eachDayIncreaseddQuality;
+
+        return Math.min(QUALITY_MAX_LIMIT, updatedQuality);
     }
 }
